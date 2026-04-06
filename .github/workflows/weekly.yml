@@ -1,0 +1,35 @@
+name: Genera episodio settimanale
+
+on:
+  schedule:
+    - cron: '0 7 * * 1'  # ogni lunedì alle 7:00 UTC
+  workflow_dispatch:       # trigger manuale dalla UI di GitHub
+
+permissions:
+  contents: write          # necessario per git push e GitHub Releases
+
+jobs:
+  genera:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Installa dipendenze
+        run: pip install -r requirements.txt
+
+      - name: Configura git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Genera episodio
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: ${{ github.repository }}
+        run: python run.py
