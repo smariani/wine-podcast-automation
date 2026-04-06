@@ -1,11 +1,12 @@
 """Carica l'episodio su GitHub Releases e aggiorna il feed RSS su docs/feed.xml."""
 
 import os
+import re
 import subprocess
-import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from email.utils import format_datetime
 from pathlib import Path
+from xml.sax.saxutils import escape
 
 import requests
 
@@ -77,89 +78,81 @@ def upload_release(episode_path: Path, tag: str) -> str:
 
 # ── Feed RSS ──────────────────────────────────────────────────────────────────
 
-def _init_feed() -> ET.Element:
-    """Crea un feed RSS vuoto con i metadati del podcast."""
-    ET.register_namespace("itunes", "http://www.itunes.com/dtds/podcast-1.0.dtd")
-    ET.register_namespace("atom", "http://www.w3.org/2005/Atom")
+_FEED_TEMPLATE = """\
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{title}</title>
+    <description>{description}</description>
+    <language>{language}</language>
+    <link>{link}</link>
+    <atom:link href="{feed_url}" rel="self" type="application/rss+xml" />
+    <image>
+      <url>{cover_url}</url>
+      <title>{title}</title>
+      <link>{link}</link>
+    </image>
+    <itunes:author>{author}</itunes:author>
+    <itunes:image href="{cover_url}" />
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:category text="Society &amp; Culture">
+      <itunes:category text="Food" />
+    </itunes:category>
+    <itunes:owner>
+      <itunes:name>{author}</itunes:name>
+    </itunes:owner>
+{items}  </channel>
+</rss>"""
 
-    rss = ET.Element("rss", {
-        "version": "2.0",
-        "xmlns:itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd",
-        "xmlns:atom": "http://www.w3.org/2005/Atom",
-    })
-    channel = ET.SubElement(rss, "channel")
-
-    ET.SubElement(channel, "title").text = PODCAST_TITLE
-    ET.SubElement(channel, "description").text = PODCAST_DESCRIPTION
-    ET.SubElement(channel, "language").text = PODCAST_LANGUAGE
-    ET.SubElement(channel, "link").text = PODCAST_LINK
-    ET.SubElement(channel, "atom:link", {
-        "href": FEED_URL,
-        "rel": "self",
-        "type": "application/rss+xml",
-    })
-
-    image = ET.SubElement(channel, "image")
-    ET.SubElement(image, "url").text = COVER_URL
-    ET.SubElement(image, "title").text = PODCAST_TITLE
-    ET.SubElement(image, "link").text = PODCAST_LINK
-
-    ET.SubElement(channel, "itunes:author").text = PODCAST_AUTHOR
-    ET.SubElement(channel, "itunes:image", {"href": COVER_URL})
-
-    itunes_owner = ET.SubElement(channel, "itunes:owner")
-    ET.SubElement(itunes_owner, "itunes:name").text = PODCAST_AUTHOR
-
-    return rss
-
-
-def _load_feed() -> tuple[ET.Element, ET.Element]:
-    """Carica il feed esistente o ne crea uno nuovo. Restituisce (rss, channel)."""
-    if FEED_PATH.exists():
-        tree = ET.parse(FEED_PATH)
-        rss = tree.getroot()
-        channel = rss.find("channel")
-    else:
-        rss = _init_feed()
-        channel = rss.find("channel")
-    return rss, channel
+_ITEM_TEMPLATE = """\
+    <item>
+      <title>{title}</title>
+      <description>{description}</description>
+      <enclosure url="{audio_url}" length="{file_size}" type="audio/mpeg" />
+      <guid isPermaLink="false">{audio_url}</guid>
+      <pubDate>{pub_date}</pubDate>
+      <itunes:duration>{duration}</itunes:duration>
+    </item>
+"""
 
 
-def _add_episode(channel: ET.Element, title: str, description: str, audio_url: str,
-                 file_size: int, pub_date: datetime) -> None:
-    """Aggiunge un nuovo <item> in cima al canale."""
-    item = ET.Element("item")
-
-    ET.SubElement(item, "title").text = title
-    ET.SubElement(item, "description").text = description
-    ET.SubElement(item, "enclosure", {
-        "url": audio_url,
-        "length": str(file_size),
-        "type": "audio/mpeg",
-    })
-    ET.SubElement(item, "guid", {"isPermaLink": "false"}).text = audio_url
-    ET.SubElement(item, "pubDate").text = format_datetime(pub_date)
-    ET.SubElement(item, "itunes:duration").text = "00:10:00"
-
-    # Inserisce il nuovo episodio prima del primo <item> esistente
-    items = channel.findall("item")
-    if items:
-        first_item_index = list(channel).index(items[0])
-        channel.insert(first_item_index, item)
-    else:
-        channel.append(item)
+def _existing_items() -> str:
+    """Estrae i blocchi <item> dal feed corrente come testo grezzo."""
+    if not FEED_PATH.exists():
+        return ""
+    content = FEED_PATH.read_text(encoding="utf-8")
+    blocks = re.findall(r"[ \t]*<item>.*?</item>\n?", content, re.DOTALL)
+    return "".join(blocks)
 
 
 def update_feed(title: str, description: str, audio_url: str,
                 file_size: int, pub_date: datetime) -> None:
-    """Aggiorna docs/feed.xml con il nuovo episodio."""
-    FEED_PATH.parent.mkdir(exist_ok=True)
-    rss, channel = _load_feed()
-    _add_episode(channel, title, description, audio_url, file_size, pub_date)
+    """Riscrive docs/feed.xml aggiungendo il nuovo episodio in cima."""
+    new_item = _ITEM_TEMPLATE.format(
+        title=escape(title),
+        description=escape(description),
+        audio_url=audio_url,
+        file_size=file_size,
+        pub_date=format_datetime(pub_date),
+        duration="00:10:00",
+    )
+    all_items = new_item + _existing_items()
 
-    tree = ET.ElementTree(rss)
-    ET.indent(tree, space="  ")
-    tree.write(str(FEED_PATH), encoding="unicode", xml_declaration=True)
+    xml = _FEED_TEMPLATE.format(
+        title=escape(PODCAST_TITLE),
+        description=escape(PODCAST_DESCRIPTION),
+        language=PODCAST_LANGUAGE,
+        link=PODCAST_LINK,
+        feed_url=FEED_URL,
+        cover_url=COVER_URL,
+        author=escape(PODCAST_AUTHOR),
+        items=all_items,
+    )
+
+    FEED_PATH.parent.mkdir(exist_ok=True)
+    FEED_PATH.write_text(xml, encoding="utf-8")
 
 
 # ── Git push ──────────────────────────────────────────────────────────────────

@@ -1,5 +1,7 @@
-<?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>La Botte Ubriaca</title>
     <description>Non il migliore podcast sul vino, ma quello che puoi permetterti</description>
@@ -13,12 +15,24 @@
     </image>
     <itunes:author>La Botte Ubriaca</itunes:author>
     <itunes:image href="https://raw.githubusercontent.com/smariani/wine-podcast-automation/main/assets/cover.jpg" />
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:category text="Society &amp; Culture">
+      <itunes:category text="Food" />
+    </itunes:category>
     <itunes:owner>
       <itunes:name>La Botte Ubriaca</itunes:name>
     </itunes:owner>
     <item>
-      <title>La Botte Ubriaca – 2026-04-06</title>
-      <description>Episodio di test per verificare il publisher.…</description>
+      <title>La Botte Ubriaca – Ep. 2</title>
+      <description>Secondo episodio generato automaticamente da GitHub Actions.</description>
+      <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-06-2/2026-04-06_episodio.mp3" length="2175984" type="audio/mpeg" />
+      <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-06-2/2026-04-06_episodio.mp3</guid>
+      <pubDate>Mon, 06 Apr 2026 08:56:01 +0000</pubDate>
+      <itunes:duration>00:10:00</itunes:duration>
+    </item>
+    <item>
+      <title>La Botte Ubriaca – Ep. 1</title>
+      <description>Episodio pilota: notizie dalla settimana del vino italiano.</description>
       <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-06/2026-04-06_episodio.mp3" length="1965456" type="audio/mpeg" />
       <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-06/2026-04-06_episodio.mp3</guid>
       <pubDate>Mon, 06 Apr 2026 08:32:46 +0000</pubDate>
