@@ -1,28 +1,36 @@
 <?xml version='1.0' encoding='utf-8'?>
-<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss xmlns:ns0="http://www.w3.org/2005/Atom" xmlns:ns1="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
   <channel>
     <title>La Botte Ubriaca</title>
     <description>Non il migliore podcast sul vino, ma quello che puoi permetterti</description>
     <language>it</language>
     <link>https://github.com/smariani/wine-podcast-automation</link>
-    <atom:link href="https://smariani.github.io/wine-podcast-automation/feed.xml" rel="self" type="application/rss+xml" />
+    <ns0:link href="https://smariani.github.io/wine-podcast-automation/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://raw.githubusercontent.com/smariani/wine-podcast-automation/main/assets/cover.jpg</url>
       <title>La Botte Ubriaca</title>
       <link>https://github.com/smariani/wine-podcast-automation</link>
     </image>
-    <itunes:author>La Botte Ubriaca</itunes:author>
-    <itunes:image href="https://raw.githubusercontent.com/smariani/wine-podcast-automation/main/assets/cover.jpg" />
-    <itunes:owner>
-      <itunes:name>La Botte Ubriaca</itunes:name>
-    </itunes:owner>
+    <ns1:author>La Botte Ubriaca</ns1:author>
+    <ns1:image href="https://raw.githubusercontent.com/smariani/wine-podcast-automation/main/assets/cover.jpg" />
+    <ns1:owner>
+      <ns1:name>La Botte Ubriaca</ns1:name>
+    </ns1:owner>
+    <item>
+      <title>La Botte Ubriaca – 2026-04-06</title>
+      <description>Ciao a tutti, benvenuti in questo nuovo episodio de "Il Sommelier Digitale"! Spero che stiate tutti bene e che la vostra settimana sia iniziata con il piede giusto. Io sono già immerso nel mondo del vino, come al solito, e sono qui per condividere con voi le ultime notizie e le mie riflessioni su ci…</description>
+      <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-06-2/2026-04-06_episodio.mp3" length="2175984" type="audio/mpeg" />
+      <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-06-2/2026-04-06_episodio.mp3</guid>
+      <pubDate>Mon, 06 Apr 2026 08:56:01 +0000</pubDate>
+      <itunes:duration>00:10:00</itunes:duration>
+    </item>
     <item>
       <title>La Botte Ubriaca – 2026-04-06</title>
       <description>Episodio di test per verificare il publisher.…</description>
       <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-06/2026-04-06_episodio.mp3" length="1965456" type="audio/mpeg" />
       <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-06/2026-04-06_episodio.mp3</guid>
       <pubDate>Mon, 06 Apr 2026 08:32:46 +0000</pubDate>
-      <itunes:duration>00:10:00</itunes:duration>
+      <ns1:duration>00:10:00</ns1:duration>
     </item>
   </channel>
 </rss>
