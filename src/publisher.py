@@ -102,6 +102,7 @@ _FEED_TEMPLATE = """\
     </itunes:category>
     <itunes:owner>
       <itunes:name>{author}</itunes:name>
+      <itunes:email>stefano1.mariani@gmail.com</itunes:email>
     </itunes:owner>
 {items}  </channel>
 </rss>"""
