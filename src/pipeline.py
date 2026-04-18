@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from src import research, script, tts, publisher
+from src.episode_format import get_format
 
 OUTPUT_DIR = Path("output")
 PODCAST_TITLE = "La Botte Ubriaca"
@@ -11,16 +12,19 @@ PODCAST_TITLE = "La Botte Ubriaca"
 
 def run() -> Path:
     OUTPUT_DIR.mkdir(exist_ok=True)
-    slug = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    now = datetime.now(timezone.utc)
+    slug = now.strftime("%Y-%m-%d")
+    fmt = get_format(now)
     episode_path = OUTPUT_DIR / f"{slug}_episodio.mp3"
-    title = f"{PODCAST_TITLE} – {slug}"
+    title = f"{PODCAST_TITLE} – {fmt.label} – {slug}"
 
     print("[1/5] Scarico notizie RSS...")
     result = research.run()
     print(f"      {len(result.stories)} notizie trovate")
 
     print("[2/5] Genero lo script...")
-    testo = script.generate(result)
+    print(f"      Formato: {fmt.label}")
+    testo = script.generate(result, fmt)
     parole = len(testo.split())
     print(f"      {parole} parole (~{round(parole / 130, 1)} min)")
 
