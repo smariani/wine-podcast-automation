@@ -25,6 +25,14 @@
     </itunes:owner>
     <item>
       <title>La Botte Ubriaca – Notizie dalla Vigna</title>
+      <description>Ciao a tutti gli appassionati di vino e non solo, benvenuti a questo nuovo episodio di "Il Sommelier Digitale"! Oggi parleremo di notizie recenti dal mondo del vino, ma non solo. Avrete notato che il nostro formato di oggi si chiama "Notizie dalla Vigna", e sono proprio queste storie che ci porteran…</description>
+      <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-18-5/2026-04-18_episodio.mp3" length="5107923" type="audio/mpeg" />
+      <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-18-5/2026-04-18_episodio.mp3</guid>
+      <pubDate>Sat, 18 Apr 2026 08:49:24 +0000</pubDate>
+      <itunes:duration>00:10:00</itunes:duration>
+    </item>
+    <item>
+      <title>La Botte Ubriaca – Notizie dalla Vigna</title>
       <description>Ciao a tutti, benvenuti a "Il Sommelier Digitale", il podcast dove il vino incontra la passione e la curiosità. Oggi, in questo episodio di "Notizie dalla Vigna", vi porto in un viaggio attraverso le ultime notizie dal mondo del vino e non solo, con storie che vi faranno scoprire nuovi angoli del pi…</description>
       <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-18-4/2026-04-18_episodio.mp3" length="5349503" type="audio/mpeg" />
       <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-18-4/2026-04-18_episodio.mp3</guid>
