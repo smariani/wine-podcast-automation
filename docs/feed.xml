@@ -24,6 +24,14 @@
       <itunes:email>stefano1.mariani@gmail.com</itunes:email>
     </itunes:owner>
     <item>
+      <title>La Botte Ubriaca – Notizie dalla Vigna – 2026-04-18</title>
+      <description>Ciao a tutti, benvenuti a "Il Sommelier Digitale", il vostro podcast preferito dove parliamo di vino, cibo e cultura enogastronomica. Oggi è un episodio speciale, perché vogliamo portarvi nel cuore delle notizie più interessanti del mondo del vino e della gastronomia. Il tema di oggi è "Notizie dall…</description>
+      <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-18-3/2026-04-18_episodio.mp3" length="5567260" type="audio/mpeg" />
+      <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-18-3/2026-04-18_episodio.mp3</guid>
+      <pubDate>Sat, 18 Apr 2026 08:44:40 +0000</pubDate>
+      <itunes:duration>00:10:00</itunes:duration>
+    </item>
+    <item>
       <title>La Botte Ubriaca – 2026-04-18</title>
       <description>Ciao a tutti e benvenuti a un nuovo episodio de "Il Sommelier Digitale"! Spero che siate tutti in forma e pronti a scoprire nuove storie e sapori dal mondo del vino e non solo. Oggi voglio partire da una notizia che mi ha particolarmente colpito, la storia di Peppe Errichiello, un pizzaiolo italiano…</description>
       <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-18-2/2026-04-18_episodio.mp3" length="5139270" type="audio/mpeg" />
