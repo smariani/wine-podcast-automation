@@ -24,6 +24,16 @@
       <itunes:email>stefano1.mariani@gmail.com</itunes:email>
     </itunes:owner>
     <item>
+      <title>La Botte Ubriaca – 2026-04-18</title>
+      <description>Ciao a tutti, benvenuti nel nuovo episodio de "Il Sommelier Digitale"! Spero che stiate bene e che siate pronti a immergervi con me nel mondo del vino e della gastronomia. Oggi voglio parlare di alcune notizie recenti che mi hanno colpito particolarmente e che ritengo siano interessanti per voi. 
+
+I…</description>
+      <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-18/2026-04-18_episodio.mp3" length="5392080" type="audio/mpeg" />
+      <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-18/2026-04-18_episodio.mp3</guid>
+      <pubDate>Sat, 18 Apr 2026 07:52:52 +0000</pubDate>
+      <itunes:duration>00:10:00</itunes:duration>
+    </item>
+    <item>
       <title>La Botte Ubriaca – Ep. 2</title>
       <description>Secondo episodio generato automaticamente da GitHub Actions.</description>
       <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-06-2/2026-04-06_episodio.mp3" length="2175984" type="audio/mpeg" />
