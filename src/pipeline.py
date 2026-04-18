@@ -16,7 +16,7 @@ def run() -> Path:
     slug = now.strftime("%Y-%m-%d")
     fmt = get_format(now)
     episode_path = OUTPUT_DIR / f"{slug}_episodio.mp3"
-    title = f"{PODCAST_TITLE} – {fmt.label} – {slug}"
+    title = ""  # impostato dopo generazione script
 
     print("[1/5] Scarico notizie RSS...")
     result = research.run()
@@ -24,8 +24,10 @@ def run() -> Path:
 
     print("[2/5] Genero lo script...")
     print(f"      Formato: {fmt.label}")
-    testo = script.generate(result, fmt)
+    titolo_episodio, testo = script.generate(result, fmt)
+    title = f"{PODCAST_TITLE} – {titolo_episodio}"
     parole = len(testo.split())
+    print(f"      Titolo: {title}")
     print(f"      {parole} parole (~{round(parole / 130, 1)} min)")
 
     print("[3/5] Sintetizzo la voce...")

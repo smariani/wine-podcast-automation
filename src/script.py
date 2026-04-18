@@ -48,15 +48,21 @@ Lo script deve:
 - Essere lungo esattamente circa {target_words} parole ({TARGET_MINUTES} minuti di parlato)
 
 È fondamentale raggiungere la lunghezza richiesta: non fermarti prima.
-Scrivi solo il testo parlato, senza titoli o marcatori di sezione.
+
+Rispondi nel seguente formato (rispetta esattamente la struttura):
+TITOLO: <un titolo breve e accattivante che riflette il contenuto specifico dell'episodio, max 8 parole>
+SCRIPT:
+<il testo parlato completo, senza titoli o marcatori di sezione>
 """
 
 
-def generate(result: ResearchResult, fmt: EpisodeFormat) -> str:
+def generate(result: ResearchResult, fmt: EpisodeFormat) -> tuple[str, str]:
+    """Restituisce (titolo, testo_parlato)."""
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     model = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
 
-    response = client.chat.completions.create(
+    # Genera lo script
+    script_response = client.chat.completions.create(
         model=model,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
@@ -65,5 +71,25 @@ def generate(result: ResearchResult, fmt: EpisodeFormat) -> str:
         temperature=0.8,
         max_tokens=4096,
     )
+    testo = script_response.choices[0].message.content.strip()
 
-    return response.choices[0].message.content.strip()
+    # Genera il titolo in una chiamata separata
+    title_response = client.chat.completions.create(
+        model=model,
+        messages=[
+            {
+                "role": "user",
+                "content": (
+                    f"Basandoti su questo script di podcast sul vino, crea un titolo breve e "
+                    f"accattivante (massimo 7 parole, in italiano). "
+                    f"Rispondi SOLO con il titolo, senza virgolette né punteggiatura finale.\n\n"
+                    f"{testo[:500]}"
+                ),
+            }
+        ],
+        temperature=0.7,
+        max_tokens=30,
+    )
+    titolo = title_response.choices[0].message.content.strip().strip('"').strip("'")
+
+    return titolo, testo
