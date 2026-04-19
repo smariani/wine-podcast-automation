@@ -31,13 +31,25 @@ def _clean_text(text: str) -> str:
 TEST_CHARS = 500  # caratteri sintetizzati in modalità test
 
 
+def _run_test(text: str, output_path: Path) -> None:
+    """Sintesi gratuita con edge-tts per test pipeline."""
+    import asyncio
+    import edge_tts
+    async def _synth():
+        communicate = edge_tts.Communicate(text[:500], "it-IT-DiegoNeural")
+        await communicate.save(str(output_path))
+    asyncio.run(_synth())
+
+
 def run(text: str, output_path: Path, test_mode: bool = False) -> Path:
+    text = _clean_text(text)
+
+    if test_mode:
+        _run_test(text, output_path)
+        return output_path
+
     api_key = os.environ["ELEVENLABS_API_KEY"]
     voice_id = os.environ.get("ELEVENLABS_VOICE_ID", DEFAULT_VOICE_ID)
-
-    text = _clean_text(text)
-    if test_mode:
-        text = text[:TEST_CHARS]
 
     client = ElevenLabs(api_key=api_key)
     audio = client.text_to_speech.convert(
