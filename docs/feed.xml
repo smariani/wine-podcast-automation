@@ -24,6 +24,26 @@
       <itunes:email>stefano1.mariani@gmail.com</itunes:email>
     </itunes:owner>
     <item>
+      <title>La Botte Ubriaca – [TITOLO]</title>
+      <description>Cos'è davvero il vino
+
+[SOTTOTITOLO]
+Definizione tecnica, culturale e sensoriale
+
+[REGIA]
+Voce calma. Tono nitido. Ritmo leggermente più analitico. Pause brevi.
+
+[SIGLA BREVE]
+
+Nel linguaggio comune il vino sembra una cosa semplice.
+Si prende una bottiglia, si versa nel bicchiere, si assaggia.
+Fine…</description>
+      <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-19-6/2026-04-19_episodio.mp3" length="8439057" type="audio/mpeg" />
+      <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-19-6/2026-04-19_episodio.mp3</guid>
+      <pubDate>Sun, 19 Apr 2026 12:19:44 +0000</pubDate>
+      <itunes:duration>00:10:00</itunes:duration>
+    </item>
+    <item>
       <title>La Botte Ubriaca – Perche il vino parla</title>
       <description>Ci sono bevande che dissetano.
 E poi c'è il vino.
