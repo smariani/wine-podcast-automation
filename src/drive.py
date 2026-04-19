@@ -74,25 +74,32 @@ def read_file(file: DriveFile) -> tuple[str, str]:
     raw = service.files().get_media(fileId=file.file_id).execute()
     content = raw.decode("utf-8").strip()
 
-    # Estrae il titolo dalla sezione [TITOLO]
-    title_match = _re.search(r"\[TITOLO\]\s*\n(.+)", content)
+    # Normalizza line endings
+    content = content.replace("\r\n", "\n").replace("\r", "\n")
+
+    # Estrae il titolo dalla riga dopo [TITOLO]
+    title_match = _re.search(r"\[TITOLO\]\s*\n([^\[\n]+)", content)
     if title_match:
         title = title_match.group(1).strip()
     else:
-        # Fallback: prima riga se breve, altrimenti dal nome file
-        first_line = content.splitlines()[0].strip() if content else ""
-        title = first_line if (first_line and len(first_line) <= 120
-                               and not first_line.startswith("[")) else file.title
+        # Fallback: prima riga non-marcatore, altrimenti dal nome file
+        first_line = next(
+            (l.strip() for l in content.splitlines()
+             if l.strip() and not l.strip().startswith("[")),
+            ""
+        )
+        title = first_line if (first_line and len(first_line) <= 120) else file.title
 
-    # Rimuove le sezioni non parlate: [TITOLO], [SOTTOTITOLO], [REGIA] e le righe che seguono
+    # Rimuove le sezioni di intestazione [TITOLO], [SOTTOTITOLO], [REGIA]
+    # e il testo immediatamente successivo fino al prossimo marcatore
     testo = content
     for section in ["TITOLO", "SOTTOTITOLO", "REGIA"]:
-        testo = _re.sub(rf"\[{section}\]\s*\n.*?\n", "", testo, flags=_re.S)
+        testo = _re.sub(rf"\[{section}\]\s*\n[^\[]*", "", testo)
 
     # Rimuove tutti i marcatori [qualsiasi cosa] rimasti (sigla, pausa, note regia)
     testo = _re.sub(r"\[.*?\]", "", testo)
 
-    # Pulizia spazi e righe vuote multiple
+    # Pulizia righe vuote multiple
     testo = _re.sub(r"\n{3,}", "\n\n", testo).strip()
 
     return title, testo

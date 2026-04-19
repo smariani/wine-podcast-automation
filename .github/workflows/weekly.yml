@@ -1,8 +1,8 @@
-name: Genera episodio quotidiano
+name: Genera episodio settimanale
 
 on:
   schedule:
-    - cron: '0 7 * * *'  # ogni giorno alle 7:00 UTC
+    - cron: '0 7 * * 1'  # ogni lunedì alle 7:00 UTC
   workflow_dispatch:       # trigger manuale dalla UI di GitHub
 
 permissions:

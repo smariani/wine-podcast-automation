@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 import re
 
+import os
 from src import tts, publisher, tracker
 from src.drive import list_files, read_file
 
@@ -38,8 +39,12 @@ def run() -> Path:
     script_path = OUTPUT_DIR / f"{slug}_{_safe_filename(next_file.title)}.txt"
     script_path.write_text(testo, encoding="utf-8")
 
-    print("[2/4] Sintetizzo la voce...")
-    tts.run(testo, episode_path)
+    test_mode = os.environ.get("TTS_TEST_MODE", "").lower() in ("1", "true")
+    if test_mode:
+        print("[2/4] Sintetizzo la voce... [modalità test — primi 500 char]")
+    else:
+        print("[2/4] Sintetizzo la voce...")
+    tts.run(testo, episode_path, test_mode=test_mode)
     size_mb = round(episode_path.stat().st_size / 1024 / 1024, 1)
     print(f"      Salvato: {episode_path} ({size_mb} MB)")
 

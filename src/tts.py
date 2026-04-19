@@ -28,11 +28,16 @@ def _clean_text(text: str) -> str:
     return text.strip()
 
 
-def run(text: str, output_path: Path) -> Path:
+TEST_CHARS = 500  # caratteri sintetizzati in modalità test
+
+
+def run(text: str, output_path: Path, test_mode: bool = False) -> Path:
     api_key = os.environ["ELEVENLABS_API_KEY"]
     voice_id = os.environ.get("ELEVENLABS_VOICE_ID", DEFAULT_VOICE_ID)
 
     text = _clean_text(text)
+    if test_mode:
+        text = text[:TEST_CHARS]
 
     client = ElevenLabs(api_key=api_key)
     audio = client.text_to_speech.convert(
