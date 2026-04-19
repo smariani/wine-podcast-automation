@@ -24,6 +24,21 @@
       <itunes:email>stefano1.mariani@gmail.com</itunes:email>
     </itunes:owner>
     <item>
+      <title>La Botte Ubriaca – Cos'è davvero il vino</title>
+      <description>Nel linguaggio comune il vino sembra una cosa semplice.
+Si prende una bottiglia, si versa nel bicchiere, si assaggia.
+Fine della storia.
+
+In realtà, la storia comincia proprio lì.
+Perché il vino è uno degli oggetti culturali più fraintesi che esistano.
+Molti lo trattano come una bevanda qualsiasi.
+A…</description>
+      <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-19-7/2026-04-19_episodio.mp3" length="234288" type="audio/mpeg" />
+      <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-19-7/2026-04-19_episodio.mp3</guid>
+      <pubDate>Sun, 19 Apr 2026 12:48:05 +0000</pubDate>
+      <itunes:duration>00:10:00</itunes:duration>
+    </item>
+    <item>
       <title>La Botte Ubriaca – [TITOLO]</title>
       <description>Cos'è davvero il vino
 
