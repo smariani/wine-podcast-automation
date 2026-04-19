@@ -64,22 +64,35 @@ def list_files() -> list[DriveFile]:
 def read_file(file: DriveFile) -> tuple[str, str]:
     """Legge il file Drive e restituisce (titolo, testo_tts).
 
-    Convenzione: se la prima riga è breve (<=120 chars, niente punto finale),
-    viene usata come titolo e rimossa dal testo TTS.
-    Altrimenti il titolo viene derivato dal nome file come fallback.
+    Gestisce il formato con marcatori di sezione [TITOLO], [REGIA], ecc.
+    Il titolo viene letto dalla riga subito dopo [TITOLO].
+    Il testo TTS è il contenuto parlato, ripulito da tutti i marcatori.
     """
+    import re as _re
+
     service = _get_service()
     raw = service.files().get_media(fileId=file.file_id).execute()
     content = raw.decode("utf-8").strip()
 
-    lines = content.splitlines()
-    first_line = lines[0].strip() if lines else ""
-
-    if first_line and len(first_line) <= 120 and not first_line.endswith("."):
-        title = first_line
-        testo = "\n".join(lines[1:]).strip()
+    # Estrae il titolo dalla sezione [TITOLO]
+    title_match = _re.search(r"\[TITOLO\]\s*\n(.+)", content)
+    if title_match:
+        title = title_match.group(1).strip()
     else:
-        title = file.title
-        testo = content
+        # Fallback: prima riga se breve, altrimenti dal nome file
+        first_line = content.splitlines()[0].strip() if content else ""
+        title = first_line if (first_line and len(first_line) <= 120
+                               and not first_line.startswith("[")) else file.title
+
+    # Rimuove le sezioni non parlate: [TITOLO], [SOTTOTITOLO], [REGIA] e le righe che seguono
+    testo = content
+    for section in ["TITOLO", "SOTTOTITOLO", "REGIA"]:
+        testo = _re.sub(rf"\[{section}\]\s*\n.*?\n", "", testo, flags=_re.S)
+
+    # Rimuove tutti i marcatori [qualsiasi cosa] rimasti (sigla, pausa, note regia)
+    testo = _re.sub(r"\[.*?\]", "", testo)
+
+    # Pulizia spazi e righe vuote multiple
+    testo = _re.sub(r"\n{3,}", "\n\n", testo).strip()
 
     return title, testo
