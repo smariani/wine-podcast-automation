@@ -24,6 +24,16 @@
       <itunes:email>stefano1.mariani@gmail.com</itunes:email>
     </itunes:owner>
     <item>
+      <title>La Botte Ubriaca – Vino e ciclismo in Piemonte</title>
+      <description>TITOLO: Vigne Marina Coppi, Passione e Ciclismo
+SCRIPT:
+Ciao a tutti gli amici di "Il Sommelier Digitale", oggi vi porto in un viaggio emozionante attraverso le colline del Piemonte, dove la passione per il vino e il ciclismo si incontrano in modo unico. Siamo a casa di Vigne Marina Coppi, un produt…</description>
+      <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-19/2026-04-19_episodio.mp3" length="4757255" type="audio/mpeg" />
+      <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-19/2026-04-19_episodio.mp3</guid>
+      <pubDate>Sun, 19 Apr 2026 08:07:36 +0000</pubDate>
+      <itunes:duration>00:10:00</itunes:duration>
+    </item>
+    <item>
       <title>La Botte Ubriaca – Vino e storie dalla vigna</title>
       <description>TITOLO: Notizie dalla Vigna
 SCRIPT:
