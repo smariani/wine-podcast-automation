@@ -24,6 +24,20 @@
       <itunes:email>stefano1.mariani@gmail.com</itunes:email>
     </itunes:owner>
     <item>
+      <title>Il Sommelier Digitale – Perché il vino parla</title>
+      <description>Ci sono bevande che dissetano.
+E poi c'è il vino.
+
+Il vino non riempie soltanto un bicchiere.
+Il vino porta con sé un luogo, una stagione, una scelta agricola, una tecnica di cantina, una memoria storica e, molto spesso, anche una precisa idea di futuro.
+
+Per questo motivo, parlare di vino bene non…</description>
+      <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-19-2/2026-04-19_episodio.mp3" length="9349791" type="audio/mpeg" />
+      <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-19-2/2026-04-19_episodio.mp3</guid>
+      <pubDate>Sun, 19 Apr 2026 11:08:44 +0000</pubDate>
+      <itunes:duration>00:10:00</itunes:duration>
+    </item>
+    <item>
       <title>La Botte Ubriaca – Vino e storie dalla vigna</title>
       <description>TITOLO: Notizie dalla Vigna
 SCRIPT:
