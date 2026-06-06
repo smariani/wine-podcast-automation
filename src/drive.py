@@ -3,10 +3,12 @@
 import os
 import json
 from dataclasses import dataclass
+from pathlib import Path
 from googleapiclient.discovery import build
+from googleapiclient.http import MediaFileUpload
 from google.oauth2.service_account import Credentials
 
-SCOPES = ["https://www.googleapis.com/auth/drive.readonly"]
+SCOPES = ["https://www.googleapis.com/auth/drive"]
 FOLDER_ID = "14S9TxRcBKcTXRMc0nN-zEtMd43U1kISy"
 
 
@@ -59,6 +61,65 @@ def list_files() -> list[DriveFile]:
             title=_extract_title(f["name"]),
         ))
     return files
+
+
+def list_week_folders(root_id: str) -> list[dict]:
+    """Lista le sottocartelle settimana (es. 2026-W22) ordinate per nome."""
+    service = _get_service()
+    query = (
+        f"'{root_id}' in parents"
+        " and mimeType='application/vnd.google-apps.folder'"
+        " and trashed=false"
+    )
+    result = service.files().list(
+        q=query,
+        fields="files(id, name)",
+        orderBy="name",
+    ).execute()
+    return result.get("files", [])
+
+
+def read_md_file(folder_id: str) -> str:
+    """Legge il primo file .md trovato nella cartella e restituisce il testo grezzo."""
+    service = _get_service()
+    query = f"'{folder_id}' in parents and name contains '.md' and trashed=false"
+    result = service.files().list(q=query, fields="files(id, name)").execute()
+    files = result.get("files", [])
+    if not files:
+        raise FileNotFoundError(f"Nessun file .md nella cartella {folder_id}")
+    raw = service.files().get_media(fileId=files[0]["id"]).execute()
+    return raw.decode("utf-8")
+
+
+def get_or_create_subfolder(parent_id: str, name: str) -> str:
+    """Restituisce l'ID di una sottocartella, creandola se non esiste."""
+    service = _get_service()
+    query = (
+        f"'{parent_id}' in parents"
+        f" and name='{name}'"
+        " and mimeType='application/vnd.google-apps.folder'"
+        " and trashed=false"
+    )
+    result = service.files().list(q=query, fields="files(id)").execute()
+    existing = result.get("files", [])
+    if existing:
+        return existing[0]["id"]
+    metadata = {
+        "name": name,
+        "mimeType": "application/vnd.google-apps.folder",
+        "parents": [parent_id],
+    }
+    folder = service.files().create(body=metadata, fields="id").execute()
+    return folder["id"]
+
+
+def upload_audio(local_path: Path, folder_id: str) -> str:
+    """Carica un MP3 su Drive nella cartella indicata. Restituisce il file ID."""
+    service = _get_service()
+    metadata = {"name": local_path.name, "parents": [folder_id]}
+    media = MediaFileUpload(str(local_path), mimetype="audio/mpeg", resumable=True)
+    file = service.files().create(body=metadata, media_body=media, fields="id").execute()
+    return file["id"]
 
 
 def read_file(file: DriveFile) -> tuple[str, str]:
