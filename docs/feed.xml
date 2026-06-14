@@ -24,6 +24,14 @@
       <itunes:email>stefano1.mariani@gmail.com</itunes:email>
     </itunes:owner>
     <item>
+      <title>La Botte Ubriaca – Il vino che cambia pelle</title>
+      <description>Benvenuti a La Botte Ubriaca. Sono contento che siate qui, perché questa settimana c'è molto da raccontare. E non è una storia semplice. Il vino globale sta attraversando una trasformazione profonda. I consumi calano da tre anni di fila. L'export italiano arranca sotto il peso dei dazi americani. Ep…</description>
+      <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-W24/2026-W24.mp3" length="17121785" type="audio/mpeg" />
+      <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-W24/2026-W24.mp3</guid>
+      <pubDate>Mon, 08 Jun 2026 00:00:00 +0000</pubDate>
+      <itunes:duration>00:14:54</itunes:duration>
+    </item>
+    <item>
       <title>La Botte Ubriaca – Cos'è davvero il vino</title>
       <description>Nel linguaggio comune il vino sembra una cosa semplice.
 Si prende una bottiglia, si versa nel bicchiere, si assaggia.
