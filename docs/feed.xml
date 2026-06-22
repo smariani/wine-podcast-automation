@@ -24,6 +24,14 @@
       <itunes:email>stefano1.mariani@gmail.com</itunes:email>
     </itunes:owner>
     <item>
+      <title>La Botte Ubriaca – La mappa che cambia</title>
+      <description>Benvenuti a La Botte Ubriaca. Sono contento che siate qui, perché questa settimana abbiamo molto da raccontare. Il vino italiano si trova a un bivio vero, concreto. I mercati che conosceva stanno cambiando forma. Le giacenze premono. I consumi interni cedono. Ma nel frattempo si aprono geografie nuo…</description>
+      <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-W26/2026-W26.mp3" length="18126977" type="audio/mpeg" />
+      <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-W26/2026-W26.mp3</guid>
+      <pubDate>Mon, 22 Jun 2026 00:00:00 +0000</pubDate>
+      <itunes:duration>00:15:24</itunes:duration>
+    </item>
+    <item>
       <title>La Botte Ubriaca – Il vino che cambia pelle</title>
       <description>Benvenuti a La Botte Ubriaca. Sono contento che siate qui, perché questa settimana c'è molto da raccontare. E non è una storia semplice. Il vino globale sta attraversando una trasformazione profonda. I consumi calano da tre anni di fila. L'export italiano arranca sotto il peso dei dazi americani. Ep…</description>
       <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-W24/2026-W24.mp3" length="17121785" type="audio/mpeg" />
