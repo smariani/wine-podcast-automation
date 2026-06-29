@@ -48,63 +48,20 @@
       <itunes:duration>00:14:54</itunes:duration>
     </item>
     <item>
-      <title>La Botte Ubriaca – Cos'è davvero il vino</title>
-      <description>Nel linguaggio comune il vino sembra una cosa semplice.
-Si prende una bottiglia, si versa nel bicchiere, si assaggia.
-Fine della storia.
-
-In realtà, la storia comincia proprio lì.
-Perché il vino è uno degli oggetti culturali più fraintesi che esistano.
-Molti lo trattano come una bevanda qualsiasi.
-A…</description>
-      <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-06-01/2026-06-01_episodio.mp3" length="8264351" type="audio/mpeg" />
-      <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-06-01/2026-06-01_episodio.mp3</guid>
-      <pubDate>Mon, 01 Jun 2026 12:40:12 +0000</pubDate>
-      <itunes:duration>00:10:00</itunes:duration>
+      <title>La Botte Ubriaca – Il paradosso del leader</title>
+      <description>Benvenuti a ViniConMe. Oggi parliamo di un paradosso. Il vino italiano è primo al mondo per volumi, per biodiversità, per qualità certificata. Eppure si riunisce in modalità difensiva, parlando di crisi. Come può un leader sentirsi sotto assedio? In questo episodio proviamo a rispondere. Partiremo d…</description>
+      <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-W23/2026-W23.mp3" length="12436001" type="audio/mpeg" />
+      <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-W23/2026-W23.mp3</guid>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      <itunes:duration>00:10:30</itunes:duration>
     </item>
     <item>
-      <title>La Botte Ubriaca – Cos'è davvero il vino</title>
-      <description>Nel linguaggio comune il vino sembra una cosa semplice.
-Si prende una bottiglia, si versa nel bicchiere, si assaggia.
-Fine della storia.
-
-In realtà, la storia comincia proprio lì.
-Perché il vino è uno degli oggetti culturali più fraintesi che esistano.
-Molti lo trattano come una bevanda qualsiasi.
-A…</description>
-      <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-05-25/2026-05-25_episodio.mp3" length="8088390" type="audio/mpeg" />
-      <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-05-25/2026-05-25_episodio.mp3</guid>
-      <pubDate>Mon, 25 May 2026 11:13:19 +0000</pubDate>
-      <itunes:duration>00:10:00</itunes:duration>
-    </item>
-    <item>
-      <title>La Botte Ubriaca – Cos'è davvero il vino</title>
-      <description>Nel linguaggio comune il vino sembra una cosa semplice.
-Si prende una bottiglia, si versa nel bicchiere, si assaggia.
-Fine della storia.
-
-In realtà, la storia comincia proprio lì.
-Perché il vino è uno degli oggetti culturali più fraintesi che esistano.
-Molti lo trattano come una bevanda qualsiasi.
-A…</description>
-      <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-05-18/2026-05-18_episodio.mp3" length="8145650" type="audio/mpeg" />
-      <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-05-18/2026-05-18_episodio.mp3</guid>
-      <pubDate>Mon, 18 May 2026 11:09:27 +0000</pubDate>
-      <itunes:duration>00:10:00</itunes:duration>
-    </item>
-    <item>
-      <title>La Botte Ubriaca – Perché il vino parla</title>
-      <description>Ci sono bevande che dissetano.
-E poi c'è il vino.
-
-Il vino non riempie soltanto un bicchiere.
-Il vino porta con sé un luogo, una stagione, una scelta agricola, una tecnica di cantina, una memoria storica e, molto spesso, anche una precisa idea di futuro.
-
-Per questo motivo, parlare di vino bene non…</description>
-      <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-19-4/2026-04-19_episodio.mp3" length="9080207" type="audio/mpeg" />
-      <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-04-19-4/2026-04-19_episodio.mp3</guid>
-      <pubDate>Sun, 19 Apr 2026 11:14:04 +0000</pubDate>
-      <itunes:duration>00:10:00</itunes:duration>
+      <title>La Botte Ubriaca – Il vino che cambia regole</title>
+      <description>Benvenuti a ViniConMe. Oggi parliamo di un vino che sta cambiando le sue regole. Non una crisi passeggera, ma una riscrittura profonda delle condizioni del gioco. Partiamo dai numeri globali sul calo dei consumi, una traiettoria lunga sette anni. Poi entriamo nel quadro dei dazi tra Europa e Stati U…</description>
+      <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-W22/2026-W22.mp3" length="11659433" type="audio/mpeg" />
+      <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-W22/2026-W22.mp3</guid>
+      <pubDate>Mon, 25 May 2026 00:00:00 +0000</pubDate>
+      <itunes:duration>00:09:42</itunes:duration>
     </item>
   </channel>
 </rss>
