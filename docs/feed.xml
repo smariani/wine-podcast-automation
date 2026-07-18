@@ -24,6 +24,16 @@
       <itunes:email>stefano1.mariani@gmail.com</itunes:email>
     </itunes:owner>
     <item>
+      <title>La Botte Ubriaca – Il Caldo Che Brucia il Vino</title>
+      <description>Benvenuti a La Botte Ubriaca.
+
+Immaginate un grappolo d'uva a fine giugno. Siamo nella Valle della Loira, in Francia. Una zona verde, temperata, che fino a qualche anno fa non conosceva il caldo estremo. Eppure, guardando le bacche da vicino, qualcosa non va. La buccia è segnata, increspata, scurita…</description>
+      <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-W28/2026-W28.mp3" length="6943182" type="audio/mpeg" />
+      <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-W28/2026-W28.mp3</guid>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate>
+      <itunes:duration>00:07:48</itunes:duration>
+    </item>
+    <item>
       <title>La Botte Ubriaca – Il Vino ai Minimi: Crisi, Calore e Nuove Geografie</title>
       <description>Benvenuti a La Botte Ubriaca. Siamo a fine giugno 2026, e il settore del vino si trova a un incrocio che non aveva mai visto prima. I consumi globali sono ai minimi dal 1961. I vigneti bruciano sotto ondate di calore senza precedenti. E i mercati che sembravano solidi — gli Stati Uniti in testa — st…</description>
       <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-W27/2026-W27.mp3" length="19242092" type="audio/mpeg" />
