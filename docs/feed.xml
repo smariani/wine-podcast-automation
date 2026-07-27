@@ -24,6 +24,20 @@
       <itunes:email>stefano1.mariani@gmail.com</itunes:email>
     </itunes:owner>
     <item>
+      <title>La Botte Ubriaca – La macchina che guarda l'uva</title>
+      <description>Benvenuti a La Botte Ubriaca.
+
+Immagina di essere in vigna, a fine agosto. Il sole è ancora alto, i grappoli pendono pesanti. E tu ti fai una domanda semplice: come fai a sapere se l'uva è pronta?
+
+[pausa lunga]
+
+Il metodo tradizionale lo conosci. Si assaggia un acino. Si stringe tra le dita. Si chi…</description>
+      <enclosure url="https://github.com/smariani/wine-podcast-automation/releases/download/2026-W31/2026-W31.mp3" length="5053588" type="audio/mpeg" />
+      <guid isPermaLink="false">https://github.com/smariani/wine-podcast-automation/releases/download/2026-W31/2026-W31.mp3</guid>
+      <pubDate>Mon, 27 Jul 2026 00:00:00 +0000</pubDate>
+      <itunes:duration>00:05:54</itunes:duration>
+    </item>
+    <item>
       <title>La Botte Ubriaca – La luce che legge l'uva</title>
       <description>Benvenuti a La Botte Ubriaca.
 
